@@ -22,6 +22,7 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         print("HomeViewControllerが表示されました！")
         tableView.dataSource = self
+        tableView.delegate = self
         //下記処理は以前はリスト数を指定しても指定した数以上が表示されていたための処理
         //フッターに空のviewを設定している
         //tableView.tableFooterView = UIView()
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController{
     }
 }
 
+//初期画面
 extension HomeViewController: UITableViewDataSource{
     //UITavleViewに表示するリストの数を指定するメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,10 +51,19 @@ extension HomeViewController: UITableViewDataSource{
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         // indexPath.row → UItableViewに表示されるCellの(0から始まる)通り番号が順番に渡される
         let memoDataModel: MemoDataModel = MemoDataList[indexPath.row]
-        print(indexPath.row)
-        print(indexPath)
         cell.textLabel?.text = memoDataModel.text
         cell.detailTextLabel?.text = "\(memoDataModel.recordDate)"
         return cell
+    }
+}
+
+//詳細画面遷移
+extension HomeViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboad = UIStoryboard(name: "Main", bundle: nil)
+        let memoDetailViewController = storyboad.instantiateViewController(identifier: "MemoDetailViewController") as!
+            MemoDetailViewController
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(memoDetailViewController, animated: true)
     }
 }
