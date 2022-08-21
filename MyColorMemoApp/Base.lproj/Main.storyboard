@@ -62,16 +62,46 @@
                     <view key="view" contentMode="scaleToFill" id="3Fh-GM-nWq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D75-n4-9ae">
+                                <rect key="frame" x="10" y="10" width="355" height="647"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eQW-iY-m4b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="leading" secondItem="eQW-iY-m4b" secondAttribute="leading" constant="10" id="5nu-Mi-E0F"/>
+                            <constraint firstItem="eQW-iY-m4b" firstAttribute="trailing" secondItem="D75-n4-9ae" secondAttribute="trailing" constant="10" id="8eX-Yh-sgg"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="top" secondItem="eQW-iY-m4b" secondAttribute="top" constant="10" id="HZO-vp-055"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="leading" secondItem="eQW-iY-m4b" secondAttribute="leading" constant="10" id="I94-gC-mk9"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="top" secondItem="eQW-iY-m4b" secondAttribute="top" constant="10" id="IJJ-1B-22d"/>
+                            <constraint firstItem="eQW-iY-m4b" firstAttribute="bottom" secondItem="D75-n4-9ae" secondAttribute="bottom" constant="10" id="Mrb-W6-9Qv"/>
+                            <constraint firstItem="eQW-iY-m4b" firstAttribute="trailing" secondItem="D75-n4-9ae" secondAttribute="trailing" constant="10" id="NYQ-wm-f4Q"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="trailing" secondItem="eQW-iY-m4b" secondAttribute="trailing" constant="10" id="ck4-Rr-rzf"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="leading" secondItem="eQW-iY-m4b" secondAttribute="leading" constant="10" id="jld-tL-5Cy"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="bottom" secondItem="eQW-iY-m4b" secondAttribute="bottom" constant="10" id="qBl-bS-Fq0"/>
+                            <constraint firstItem="D75-n4-9ae" firstAttribute="top" secondItem="eQW-iY-m4b" secondAttribute="top" constant="10" id="qlK-lB-9CQ"/>
+                            <constraint firstItem="eQW-iY-m4b" firstAttribute="bottom" secondItem="D75-n4-9ae" secondAttribute="bottom" constant="10" id="zKw-T7-bVv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="D75-n4-9ae" id="g1J-e2-7rh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAZ-dH-NOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="163"/>
+            <point key="canvasLocation" x="160.80000000000001" y="162.3688155922039"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

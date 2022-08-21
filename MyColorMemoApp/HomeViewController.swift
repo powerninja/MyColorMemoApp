@@ -63,7 +63,16 @@ extension HomeViewController: UITableViewDelegate{
         let storyboad = UIStoryboard(name: "Main", bundle: nil)
         let memoDetailViewController = storyboad.instantiateViewController(identifier: "MemoDetailViewController") as!
             MemoDetailViewController
+        
+        //詳細画面にデータを受け渡す処理
+        let memoDate = MemoDataList[indexPath.row]
+        //memoDetailViewControllerのconfigureメソッドを呼び出す
+        memoDetailViewController.configure(memo: memoDate)
+        
+        //詳細画面に遷移後にホーム画面に戻った際に選択されてしまっている処理を無効化
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        //ページ遷移
         navigationController?.pushViewController(memoDetailViewController, animated: true)
     }
 }
