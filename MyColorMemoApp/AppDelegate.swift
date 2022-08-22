@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MyColorMemoApp
 //
-//  Created by 小西琢斗 on 2022/08/20.
+//  Created by tkonishi on 2022/08/20.
 //
 
 import UIKit
