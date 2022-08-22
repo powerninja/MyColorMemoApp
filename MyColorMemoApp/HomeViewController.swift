@@ -28,6 +28,8 @@ class HomeViewController: UIViewController{
         //tableView.tableFooterView = UIView()
         
         setMemoData()
+        
+        setNavigationBarButton()
     }
     
     func setMemoData(){
@@ -35,6 +37,28 @@ class HomeViewController: UIViewController{
             let memoDataModel = MemoDataModel(text: "このメモは\(i)番目のメモです。", recordDate: Date())
             MemoDataList.append(memoDataModel)
         }
+    }
+    
+    //メモ詳細画面(MemoDetailViewController)を取得して遷移させる
+    @objc func tapAddButton(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memoDetailViewController = storyboard.instantiateViewController(identifier: "MemoDetailViewController") as! MemoDetailViewController
+        navigationController?.pushViewController(memoDetailViewController, animated: true)
+    }
+    
+    func setNavigationBarButton(){
+        //ヘッダーに表示されたボタンをタップした際の処理を指定するためのクラス
+        //ボタンをタップ後にtapAddButtonメソッドが呼ばれる
+        //selectorクラスに指定するためのメソッドには、「@objc」をしてする必要がある
+        let buttonActionSelector: Selector = #selector(tapAddButton)
+        
+        //UIBarButtonItem → UINavigation Controller に配置するボタンクラスのこと
+        //barButtonSystemItem → ボタンの見た目を指定するもの
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: buttonActionSelector)
+        
+        
+        //rightBarButtonItemに挿入することでヘッダーに表示される
+        navigationItem.rightBarButtonItem = rightBarButton
     }
 }
 
