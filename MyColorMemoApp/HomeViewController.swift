@@ -10,10 +10,12 @@ import UIKit //UIに関するクラスが格納されたモジュール
 
 // HomeViewControllerにUIViewControllerを「クラス継承」する
 // HomeViewController上でUIViewControllerの機能を使用することができる
+// UIViewControllerとは？
 class HomeViewController: UIViewController{
     // storyboardのコンポーネントと紐付けした際に表示される
     @IBOutlet weak var tableView: UITableView!
     
+    //この処理はメモのcellを入れている？
     var MemoDataList: [MemoDataModel] = []
     
     // LWCのconnectedCallback的なメソッド？
