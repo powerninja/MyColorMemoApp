@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MemoDetailViewController: UIViewController{
     @IBOutlet weak var textView: UITextView!
     
-    var text: String = ""
-    var recordDate: Date = Date()
+    var memoData = MemoDataModel()
     
     //表示する日付のフォーマットを修正
     var dateFormat: DateFormatter{
@@ -25,19 +25,20 @@ class MemoDetailViewController: UIViewController{
         super.viewDidLoad()
         displayData()
         setDoneButton()
+        textView.delegate = self
     }
     
     func configure(memo: MemoDataModel){
-        text = memo.text
-        recordDate = memo.recordDate
-        print("データは\(text)と\(recordDate)です")
+        memoData.text = memo.text
+        memoData.recordDate = memo.recordDate
+        //print("データは\(text)と\(recordDate)です")
     }
     
     func displayData(){
-        textView.text = text
+        textView.text = memoData.text
         //下記では日付取得できず
         //var formatDate = dateFormat()
-        navigationItem.title = dateFormat.string(from: recordDate)
+        navigationItem.title = dateFormat.string(from: memoData.recordDate)
     }
     
     //view.endEditing(true) → 現在表示されているキーボードを閉じる
@@ -60,5 +61,24 @@ class MemoDetailViewController: UIViewController{
         
         //UIにボタンを追加する
         textView.inputAccessoryView = toolBar
+    }
+    
+    func saveDate(with text: String){
+        // デフォルトRealmを取得します
+        let realm = try! Realm()
+        try! realm.write{
+            memoData.text = text
+            memoData.recordDate = Date()
+            realm.add(memoData)
+        }
+        print("text: \(memoData.text), recordDate: \(memoData.recordDate)")
+    }
+}
+
+
+extension MemoDetailViewController: UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        let updatedText = textView.text ?? ""
+        saveDate(with: updatedText)
     }
 }
