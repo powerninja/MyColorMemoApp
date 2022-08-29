@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct MemoDataModel{
-    var text: String
-    var recordDate: Date
+
+// classの場合、初期値の指定が必要
+// sturactの場合、初期値は不要
+class MemoDataModel: Object{
+    //UUID().uuidStringアクセスのたびに一意のidを付与してくれる
+    @objc dynamic var id: String = UUID().uuidString
+    @objc dynamic var text: String = ""
+    @objc dynamic var recordDate: Date = Date()
 }

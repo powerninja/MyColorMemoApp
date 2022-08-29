@@ -8,6 +8,8 @@
 import Foundation
 import UIKit //UIに関するクラスが格納されたモジュール
 
+//pod 'RealmSwift', '=10.1.4'
+
 // HomeViewControllerにUIViewControllerを「クラス継承」する
 // HomeViewController上でUIViewControllerの機能を使用することができる
 // UIViewControllerとは？
@@ -36,7 +38,9 @@ class HomeViewController: UIViewController{
     
     func setMemoData(){
         for i in 1...5{
-            let memoDataModel = MemoDataModel(text: "このメモは\(i)番目のメモです。", recordDate: Date())
+            let memoDataModel = MemoDataModel()
+            memoDataModel.text = "このメモは\(i)番目のメモです。"
+            memoDataModel.recordDate = Date()
             MemoDataList.append(memoDataModel)
         }
     }
