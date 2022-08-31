@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit //UIに関するクラスが格納されたモジュール
+import RealmSwift
 
 //pod 'RealmSwift', '=10.1.4'
 
@@ -23,6 +24,7 @@ class HomeViewController: UIViewController{
     // LWCのconnectedCallback的なメソッド？
     // このクラスの画面が表示される際に呼び出されるメソッド
     // 画面の表示・非表示に応じて実行されるメソッドを「ライフサイクルメソッド」と呼ぶ
+    //viewDidLoad はメモリが割り当てられた一回のみ呼ばれるメソッド
     override func viewDidLoad() {
         print("HomeViewControllerが表示されました！")
         tableView.dataSource = self
@@ -31,18 +33,31 @@ class HomeViewController: UIViewController{
         //フッターに空のviewを設定している
         //tableView.tableFooterView = UIView()
         
-        setMemoData()
+        
         
         setNavigationBarButton()
     }
     
+    //画面の表示が行われるたびにデータの取得が行われる
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setMemoData()
+        //データを画面に表示させるために、画面の更新を行う処理
+        tableView.reloadData()
+    }
+    
     func setMemoData(){
-        for i in 1...5{
-            let memoDataModel = MemoDataModel()
-            memoDataModel.text = "このメモは\(i)番目のメモです。"
-            memoDataModel.recordDate = Date()
-            MemoDataList.append(memoDataModel)
-        }
+//        for i in 1...5{
+//            let memoDataModel = MemoDataModel()
+//            memoDataModel.text = "このメモは\(i)番目のメモです。"
+//            memoDataModel.recordDate = Date()
+//            MemoDataList.append(memoDataModel)
+//        }
+        let realm = try! Realm()
+        //MemoDataModelのデータを全件取得
+        let result = realm.objects(MemoDataModel.self)
+        //配列に代入
+        MemoDataList = Array(result)
     }
     
     //メモ詳細画面(MemoDetailViewController)を取得して遷移させる
