@@ -36,6 +36,7 @@ class HomeViewController: UIViewController{
         
         
         setNavigationBarButton()
+        setLeftNavigationBarButton()
     }
     
     //画面の表示が行われるたびにデータの取得が行われる
@@ -80,6 +81,37 @@ class HomeViewController: UIViewController{
         
         //rightBarButtonItemに挿入することでヘッダーに表示される
         navigationItem.rightBarButtonItem = rightBarButton
+        
+        
+    }
+    func setLeftNavigationBarButton(){
+        let buttonActionSelector: Selector = #selector(didTapColorSettingButton)
+        //画像をインスタンス化
+        let leftButtonImage = UIImage(named: "colorSettingIcon")
+        let leftButton = UIBarButtonItem(image: leftButtonImage, style: .plain, target: self, action: buttonActionSelector)
+        navigationItem.leftBarButtonItem = leftButton
+    }
+    
+    @objc func didTapColorSettingButton(){
+        //UIAlertAction アラートをタップした際の処理内容タイトル、処理内容などを引数で渡すことができる
+        let defaultAction = UIAlertAction(title: "デフォルト", style: .default, handler:{ _ -> Void in
+            print("デフォルトがタップされました!")
+        })
+        let orangeAction = UIAlertAction(title: "オレンジ", style: .default, handler: {_ -> Void in
+            print("オレンジがタップされました！")
+        })
+        let redAction = UIAlertAction(title: "レッド", style: .default, handler: {_ -> Void in
+            print("レッドがタップされました！")
+        })
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "テーマカラーを選択してください", message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(defaultAction)
+        alert.addAction(orangeAction)
+        alert.addAction(redAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
 }
 
