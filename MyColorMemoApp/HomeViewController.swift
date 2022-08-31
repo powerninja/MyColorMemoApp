@@ -120,4 +120,15 @@ extension HomeViewController: UITableViewDelegate{
         //ページ遷移
         navigationController?.pushViewController(memoDetailViewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+
+        let targetMemo = MemoDataList[indexPath.row]
+        let realm = try! Realm()
+        try! realm.write{
+            realm.delete(targetMemo)
+        }
+        MemoDataList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 }
