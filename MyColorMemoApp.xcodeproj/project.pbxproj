@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1265A5137B287A43B5098917 /* Pods_MyColorMemoApp_MyColorMemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB463B1752D7C7A575C6842 /* Pods_MyColorMemoApp_MyColorMemoAppUITests.framework */; };
 		356BD0911A1F5A8CBFB9CBEE /* Pods_MyColorMemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF4D2BF70198069699B0EB /* Pods_MyColorMemoAppTests.framework */; };
+		3639696D28C8D6620051B44F /* MyColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639696C28C8D6620051B44F /* MyColorType.swift */; };
 		36D6399828B1273F0065C1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6399728B1273F0065C1C7 /* AppDelegate.swift */; };
 		36D6399A28B1273F0065C1C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D6399928B1273F0065C1C7 /* SceneDelegate.swift */; };
 		36D6399F28B1273F0065C1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D6399D28B1273F0065C1C7 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		18CF4D2BF70198069699B0EB /* Pods_MyColorMemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyColorMemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BB7C3ADDBAACA92C355583 /* Pods_MyColorMemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyColorMemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3639696C28C8D6620051B44F /* MyColorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColorType.swift; sourceTree = "<group>"; };
 		36D6399428B1273F0065C1C7 /* MyColorMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyColorMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D6399728B1273F0065C1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36D6399928B1273F0065C1C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				36D639C728B1B17F0065C1C7 /* HomeViewController.swift */,
 				36D639C928B1BAE90065C1C7 /* MemoDataModel.swift */,
 				36E8B50628B2724A003C252E /* MemoDetailViewController.swift */,
+				3639696C28C8D6620051B44F /* MyColorType.swift */,
 			);
 			path = MyColorMemoApp;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				36D6399A28B1273F0065C1C7 /* SceneDelegate.swift in Sources */,
 				36D639C828B1B17F0065C1C7 /* HomeViewController.swift in Sources */,
 				36D639CA28B1BAE90065C1C7 /* MemoDataModel.swift in Sources */,
+				3639696D28C8D6620051B44F /* MyColorType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
