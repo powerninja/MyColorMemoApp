@@ -95,13 +95,13 @@ class HomeViewController: UIViewController{
     @objc func didTapColorSettingButton(){
         //UIAlertAction アラートをタップした際の処理内容タイトル、処理内容などを引数で渡すことができる
         let defaultAction = UIAlertAction(title: "デフォルト", style: .default, handler:{ _ -> Void in
-            print("デフォルトがタップされました!")
+            self.setThemeColor(type: .default)
         })
         let orangeAction = UIAlertAction(title: "オレンジ", style: .default, handler: {_ -> Void in
-            print("オレンジがタップされました！")
+            self.setThemeColor(type: .orange)
         })
         let redAction = UIAlertAction(title: "レッド", style: .default, handler: {_ -> Void in
-            print("レッドがタップされました！")
+            self.setThemeColor(type: .red)
         })
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         let alert = UIAlertController(title: "テーマカラーを選択してください", message: "", preferredStyle: .actionSheet)
@@ -112,6 +112,11 @@ class HomeViewController: UIViewController{
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    func setThemeColor(type: MyColorType){
+        print(type.color)
+        navigationController?.navigationBar.barTintColor = type.color
     }
 }
 

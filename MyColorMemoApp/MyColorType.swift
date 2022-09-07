@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum MyColorTYpe{
+enum MyColorType{
     //予約後のため、`で結ぶ
     case `default` // #ffffff
     case orange // #f8c165
